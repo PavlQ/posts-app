@@ -1,0 +1,27 @@
+<!-- Шаблон для редагування постів. Він надає користувачу форму для оновлення існуючого поста (введення нового заголовка, опису, автора і т. д. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагування відгука</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Відредагувати</h1>
+
+        <form action="/edit/<%= post._id %>" method="POST">
+            <input type="text" name="title" value="<%= post.title %>" required><br><br>
+            <textarea name="description" required><%= post.description %></textarea><br><br>
+            <input type="text" name="author" value="<%= post.author %>" required><br><br>
+            <button type="submit">Оновити відгук</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Ivanytskyi Pavlo Fem31. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- Шаблон, який відображає список постів, включаючи їхній заголовок, опис та автора. Зазвичай, тут відображається інформація про всі доступні пости. -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Feedback</title>
+		<link rel="stylesheet" href="/styles.css" />
+		<link rel="icon" href="/logo.jpg" type="image/jpeg" />
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>ВІДГУК ПРО ДВВC:<br />Основи веб-розробки</h1>
+
+			<form action="/posts" method="POST">
+				<h2>Написати відгук</h2>
+				<input
+					type="text"
+					name="title"
+					placeholder="Заголовок відгука"
+					required
+				/><br /><br />
+				<textarea
+					name="description"
+					placeholder="Поділіться відгуком"
+					required
+				></textarea
+				><br /><br />
+				<input
+					type="text"
+					name="author"
+					placeholder="Автор"
+					required
+				/><br /><br />
+				<button type="submit">Опублікувати</button>
+			</form>
+
+			<h2>Усі відгуки</h2>
+			<ul>
+				<% posts.forEach(post => { %>
+				<li>
+					<h3><%= post.title %></h3>
+					<p><%= post.description %></p>
+					<small>By <%= post.author %></small>
+					<a href="/edit/<%= post._id %>">Відредагувати</a> |
+					<a href="/delete/<%= post._id %>">Видалити</a>
+				</li>
+				<% }) %>
+			</ul>
+		</div>
+
+		<!-- Footer Section -->
+		<footer>
+			<p>&copy; 2024 Ivanytskyi Pavlo Fem31. All rights reserved.</p>
+		</footer>
+	</body>
+</html>
